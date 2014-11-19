@@ -587,7 +587,10 @@ class SubViewer(QtGui.QWidget):
         else:
             drop_event.accept()
     def dropEvent(self, drop_event):
-        self.set_file(str(drop_event.mimeData().urls()[0].path())[1:])
+        path = str(drop_event.mimeData().urls()[0].path())
+        if path[2]==':' and path[0]=='/':
+            path = path[1:]
+        self.set_file(path)
 
 
 
