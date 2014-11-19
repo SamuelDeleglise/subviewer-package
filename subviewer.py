@@ -5,12 +5,6 @@ import re
 import sys
 #import bisect
 
-
-
-            
-        
-
-
 class Item:
     sort_by_begin = True
     def __init__(self, begin, end, text):
@@ -586,6 +580,7 @@ class SubViewer(QtGui.QWidget):
             drop_event.reject()
         else:
             drop_event.accept()
+            
     def dropEvent(self, drop_event):
         path = str(drop_event.mimeData().urls()[0].path())
         if path[2]==':' and path[0]=='/':
